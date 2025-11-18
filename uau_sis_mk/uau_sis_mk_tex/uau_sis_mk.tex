@@ -1,0 +1,155 @@
+\documentclass[12pt]{iopart}
+\newcommand{\gguide}{{\it Preparing graphics for IOP journals}}
+%Uncomment next line if AMS fonts required
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\usepackage{epsfig}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{times}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+
+
+\def\x{{ x}}
+\begin{document}
+	
+	\title{UAU SIS mk model}
+	
+	\author{et.al$^{1}$}
+	
+	\address{$^{1}$ School of Computer Science and Engineering,
+		University of Electronic Science and Technology of China, Chengdu, 611731, China}
+	
+	\address{$^{2}$ Web Sciences Center, School of Computer Science and Engineering,
+		University of Electronic Science and Technology of China, Chengdu, 611731, China}
+	
+	\address{E-mail: *danyangsjhd@hotmail.com}
+	
+	
+	%\ead{custserv@iop.org}
+	
+	\begin{abstract}    
+		Numerous real--world systems, for instance, the communication platforms and transportation systems, can be abstracted into complex networks. 
+		
+	\end{abstract}
+	\pacs{89.75.Hc, 87.19.X-, 87.23.Ge}
+	%89.75.Hc: Genealogical trees (complex systems)
+	%87.19.X-: Disease
+	%64.60.Ht: dynamic critical behavior
+	
+	
+	%Uncomment for PACS numbers title message
+	%\pacs{00.00, 20.00, 42.10}
+	% Keywords required only for MST, PB, PMB, PM, JOA, JOB?
+	%\vspace{2pc}
+	%\noindent{\it Keywords}: Article preparation, IOP journals
+	% Uncomment for Submitted to journal title message
+	%\submitto{\JPA}
+	% Comment out if separate title page not required
+	
+	\maketitle
+	\tableofcontents
+	\section{Introduction}
+	The subject of containing spreading dynamics in networked systems has attracted substantial attention
+	from multiple fronts, for instance, network science, statistical physics, and computer science. 
+	
+	\section{Model description} \label{sec:model}
+	
+	In this study, we consider the UAU-SIOS model on a complex network $G$ of $N$ nodes and $M$ edges. 
+	
+	\begin{eqnarray}
+	\left\{\begin{aligned}
+	\theta_{i}(t) &=& \prod_{j}\left[1-a_{j i} P_{j}^{\mathrm{A}}(t) \lambda\right] \\
+	q_{i}^{\mathrm{U}}(t) &=& \prod_{j}\left[1-b_{j i} P_{j}^{\mathrm{I}}(t) \beta_{\mathrm{U}}\right] \\
+	q_{i}^{\mathrm{A}}(t) &=& \prod_{j}\left[1-b_{j i} P_{j}^{\mathrm{I}}(t) \beta_{\mathrm{A}}\right]
+	\end{aligned}
+	\right.
+	\end{eqnarray}
+	
+	\begin{eqnarray}\label{eq:ui}
+	P_{i}^{U I}(t+1) &=& P_{i}^{U I}(t) \theta_{i}(t)\left(1-\mu_{1}\right)(1-\sigma) \nonumber\\
+		&+&P_{i}^{A I}(t) \delta\left(1-\mu_{1}\right)(1-\sigma) \nonumber\\
+		&+&P_{i}^{U S}(t) \theta_{i}(t)\left[1-q_{i}^{U}(t)\right](1-\sigma) \nonumber\\
+		&+&P_{i}^{A S}(t) \delta\left[1-q_{i}^{U}(t)\right](1-\sigma) \nonumber\\
+	\end{eqnarray}
+	
+
+	
+	\section{Theoretical analysis} \label{sec:theory}
+	In this section, we first present the Discrete--Markovian--chain (DMC) approach~\cite{gomez2010discrete,pan2019optimal} for the SIS model on the network $G$. Then, using a perturbation method for the DMC, we derive a formula that approximately provides the decremental outbreak size after deactivating an edge in the network $G$. Finally, using the formula, we study the problem of determining the optimal edge, which, if deactivated, can maximize the decremental outbreak size.
+	\subsection{The Discrete--Markovian--chain approach for the SIS model}\label{DMC}
+	
+	In this subsection, we adopt the discrete--Markovian--chain (DMC) approach to study the SIS model on the network $G$. 
+	
+	
+	\subsection{Determining the optimal edge for containing the spreading}\label{PM}
+	
+	For convenience, we denote the new network we get after deactivating the specific edge $l$ in the original network by $G^{'}_{l}$. 
+	\begin{eqnarray}\label{eq:np1}
+	\dot \rho_{l}
+	&=&c_{ij} \mathbf{1}^{\mathrm{T}}Xu+c_{ji} \mathbf{1}^{\mathrm{T}}Xv+\frac{\varepsilon_{ij}c_{ij} X_{ji}\mathbf{1}^{\mathrm{T}}X u}{1-\varepsilon_{ij}X_{ji}}\nonumber \\
+	& &+\frac{\varepsilon_{ij}c_{ji} X_{jj}\mathbf{1}^{\mathrm{T}}X u}{1-\varepsilon_{ij}X_{ji}}.
+	\end{eqnarray}
+	
+	
+	
+	\section{Simulation results}\label{sec:simulation}
+		
+	 Figs.~\ref{model_mmca} (a) and (b).   Tab.~\ref{tab:networks} (a) and (b). 
+	\begin{figure}
+		\centering
+		% Requires \usepackage{graphicx}
+		\includegraphics[width=0.9\textwidth]{0mc_mmca_mp.png}
+		\caption{(Color online) check theory.}\label{numrical_rank}
+	\end{figure}
+	
+	
+	\begin{table}
+		\centering
+		\caption{Basic statistics of the two synthetic networks and six real--world networks employed in this study: the number of
+			nodes $N$, the number of edges $M$, the average degree $\left\langle k\right\rangle $, and the theoretical spreading threshold $\lambda_c$.}
+		\begin{tabular}{lllllll}
+			\br
+			Name                    &$N$ & $M$ &  $\left\langle k\right\rangle $  & $\lambda_c$     \\ \mr
+			SF2.3                   & 200  & 1000      & 10                                            & 0.076 \\
+			SF3.0                  & 200  & 1000     & 10                                        & 0.083 \\
+			Residence hall          & 217  & 1839     & 16.949                                           & 0.046 \\
+			Hamsterster friendships & 1788 & 12476   & 13.955                                           & 0.022 \\
+			Jazz musicians          & 198  & 2742    & 27.697                                          & 0.025 \\
+			Facebook (NIPS)         & 2888 & 2981    & 2.0644                                         & 0.036 \\
+			Physicians              & 117  & 465     & 7.95                                              & 0.099 \\
+			Air traffic control     & 1226 & 2408     & 3.928                                             & 0.109 \\ \br
+		\end{tabular}
+		\label{tab:networks}
+	\end{table}
+
+		
+	\section{Conclusions}\label{sec:conclusion}
+	
+	Containing spreading dynamics (e.g., epidemic transmission and misinformation propagation) in the networked systems (e.g., transportation systems and communication platforms) is of both theoretical and practical importance. 
+	
+	
+	
+	\section*{Acknowledgements}
+	
+	This work was partially supported by the China Postdoctoral Science Foundation (Grant No.~2018M631073), China Postdoctoral Science Special Foundation (Grant No.~2019T120829), National Natural Science Foundation of China (Grant Nos.~61903266 and 61603074), and Fundamental Research Funds for the Central Universities.
+	
+	\appendix
+	\section{}\label{It}
+	%\section{Detailed calculations of $n_x(\vec{k},t)$}
+	
+	\begin{center}
+		\textbf{The iteration formula of $\dot I(t)$}
+	\end{center}
+	
+	This appendix shows the detailed steps of obtaining the iteration formula of $\dot I(t)$. 
+	
+	\section*{References}
+	\bibliographystyle{iopart-num}
+	\bibliography{xianjiajun}
+	
+\end{document}
